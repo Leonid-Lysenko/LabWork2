@@ -1,5 +1,5 @@
 ﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab1
+   Lab2
 */
 
 /**
