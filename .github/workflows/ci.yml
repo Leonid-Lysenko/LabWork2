@@ -1,0 +1,41 @@
+name: Card Heroes Battle CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential doxygen graphviz
+
+    - name: Build
+      run: |
+        chmod +x build.sh
+        ./build.sh
+
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: card-heroes-battle
+        path: |
+          build/bin/*.exe
+          docs/html/
+
+    - name: Deploy Documentation
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs/html
+
