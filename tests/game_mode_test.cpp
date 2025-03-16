@@ -1,4 +1,7 @@
-// game_mode_test.cpp
+/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
 class GameModeTest : public ::testing::Test {
 protected:
     std::shared_ptr<GameMode> mode;

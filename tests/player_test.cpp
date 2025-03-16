@@ -1,3 +1,7 @@
+/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
 class PlayerTest : public ::testing::Test {
 protected:
     std::shared_ptr<Player> player;

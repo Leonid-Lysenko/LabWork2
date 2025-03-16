@@ -1,11 +1,13 @@
-// effect_test.cpp
+/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
 class EffectTest : public ::testing::Test {
 protected:
     std::shared_ptr<Character> character;
     
     void SetUp() override {
-        character = std::make_shared<CharacterCard>(1, "Test", "", 1, 
-                                                  CharacterClass::Warrior, 2, 3);
+        character = std::make_shared<CharacterCard>(1, "Test", "", 1, CharacterClass::Warrior, 2, 3);
     }
 };
 
