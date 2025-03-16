@@ -1,0 +1,42 @@
+name: Card Heroes Battle CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up MSVC
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Install Doxygen
+      run: |
+        choco install doxygen.install -y
+        choco install graphviz -y
+
+    - name: Build
+      run: |
+        call build.bat
+      shell: cmd
+
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: card-heroes-battle
+        path: |
+          build/bin/*.exe
+          docs/html/
+
+    - name: Deploy Documentation
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs/html
