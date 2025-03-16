@@ -1,3 +1,8 @@
+﻿/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
+
 /**
  * @file buff_effect.cpp
  * @brief Реализация класса эффектов усиления

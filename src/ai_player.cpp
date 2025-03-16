@@ -1,3 +1,7 @@
+﻿/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
 #include "ai_player.h"
 #include "spell_card.h"
 bool AIPlayer::takeTurn(Player* opponent) {

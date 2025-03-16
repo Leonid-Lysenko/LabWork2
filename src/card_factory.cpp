@@ -1,4 +1,7 @@
-// card_factory.cpp
+﻿/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
 #include "card_factory.h"
 
 CardFactory& CardFactory::getInstance() {

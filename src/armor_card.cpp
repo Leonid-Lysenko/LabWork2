@@ -1,4 +1,7 @@
-// armor_card.cpp
+﻿/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
 #include "armor_card.h"
 
 ArmorCard::ArmorCard(int id, std::string name, std::string description,

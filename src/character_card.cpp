@@ -1,4 +1,7 @@
-// character_card.cpp
+﻿/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
 #include "character_card.h"
 #include "player.h"
 #include <sstream>

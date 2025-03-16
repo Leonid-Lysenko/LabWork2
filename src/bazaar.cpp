@@ -1,4 +1,8 @@
-// bazaar.cpp
+﻿/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
+
 #include "bazaar.h"
 
 Bazaar::Bazaar() : m_gold(0) {
