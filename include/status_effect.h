@@ -1,3 +1,8 @@
+﻿/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
+
 /**
  * @file status_effect.h
  * @brief Класс для эффектов статуса

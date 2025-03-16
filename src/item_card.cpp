@@ -1,3 +1,7 @@
+﻿/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
 #include "item_card.h"
 
 ItemCard::ItemCard(int id, std::string name, std::string description,

@@ -1,3 +1,7 @@
+﻿/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
 #ifndef DUELMMODE_H
 #define DUELMMODE_H
 

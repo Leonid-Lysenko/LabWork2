@@ -1,3 +1,8 @@
+﻿/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
+
 #include "human_player.h"
 
 bool HumanPlayer::takeTurn(Player* opponent) {

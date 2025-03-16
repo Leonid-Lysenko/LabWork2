@@ -1,3 +1,8 @@
+﻿/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
+
 /**
  * @file human_player.h
  * @brief Класс игрока-человека

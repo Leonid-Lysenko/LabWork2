@@ -1,3 +1,7 @@
+﻿/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
 /**
  * @file main.cpp
  * @brief Main entry point for the Card Heroes Battle game

@@ -1,3 +1,8 @@
+﻿/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
+
 /**
  * @file game_mode.cpp
  * @brief Реализация базового класса игровых режимов

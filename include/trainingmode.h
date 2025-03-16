@@ -1,3 +1,8 @@
+﻿/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
+
 #ifndef TRAININGMODE_H
 #define TRAININGMODE_H
 

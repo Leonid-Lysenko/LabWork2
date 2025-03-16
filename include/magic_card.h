@@ -1,3 +1,7 @@
+﻿/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
 /**
  * @file magic_card.h
  * @brief Magic card class for spells and other magical effects

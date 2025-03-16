@@ -1,4 +1,8 @@
-// player.cpp
+﻿/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
+
 #include "player.h"
 #include <iostream>
 

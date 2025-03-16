@@ -1,3 +1,8 @@
+﻿/* Leonid Lysenko st128618@student.spbu.ru
+   Lab2
+*/
+
+
 /**
  * @file meditation_mode.cpp
  * @brief Реализация режима медитации для экспериментов с картами
