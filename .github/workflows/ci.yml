@@ -10,13 +10,19 @@ jobs:
         os: [ubuntu-latest, windows-latest]
         
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     
+    - name: Install dependencies (Ubuntu)
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential cmake doxygen graphviz libgtest-dev
+
     - name: Configure CMake
-      run: cmake -B build
+      run: cmake -B build -DBUILD_TESTS=ON -DBUILD_DOCS=ON
       
     - name: Build
-      run: cmake --build build
+      run: cmake --build build --config Release
       
     - name: Test
       run: cd build && ctest --output-on-failure
@@ -26,30 +32,23 @@ jobs:
       if: matrix.os == 'windows-latest'
       uses: microsoft/setup-msbuild@v1.1
 
-    - name: Install Doxygen (Windows)
+    - name: Install Dependencies (Windows)
       if: matrix.os == 'windows-latest'
       run: |
         choco install doxygen.install -y
         choco install graphviz -y
 
-    # Условные шаги для Ubuntu
-    - name: Install Doxygen (Ubuntu)
-      if: matrix.os == 'ubuntu-latest'
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y doxygen graphviz
-
     - name: Upload Artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: card-heroes-battle-${{ matrix.os }}
         path: |
           build/bin/*
-          docs/html/
+          build/docs/html/
 
     - name: Deploy Documentation
       if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs/html
+        publish_dir: ./build/docs/html
