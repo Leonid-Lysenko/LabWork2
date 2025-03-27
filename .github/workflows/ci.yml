@@ -1,47 +1,27 @@
-name: CI
+name: CI workflows
 
 on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     timeout-minutes: 30
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-      fail-fast: false
         
     steps:
     - uses: actions/checkout@v4
     
-    # Установка зависимостей
-    - name: Install dependencies (Ubuntu)
-      if: matrix.os == 'ubuntu-latest'
+    # Установка зависимостей (только для Ubuntu)
+    - name: Install dependencies
       run: |
         sudo apt-get update
         sudo apt-get install -y build-essential cmake doxygen graphviz libgtest-dev
-
-    - name: Set up MSVC (Windows only)
-      if: matrix.os == 'windows-latest'
-      uses: microsoft/setup-msbuild@v1.1
-
-    - name: Install Dependencies (Windows)
-      if: matrix.os == 'windows-latest'
-      run: |
-        choco install doxygen.install -y
-        choco install graphviz -y
 
     # Конфигурация и сборка
     - name: Configure CMake
       run: cmake -B build -DBUILD_TESTS=ON -DBUILD_DOCS=ON -DCMAKE_BUILD_TYPE=Release
       
     - name: Build
-      run: |
-        if [ "${{ matrix.os }}" == "windows-latest" ]; then
-          cmake --build build --config Release -- /m:2
-        else
-          cmake --build build --config Release --parallel 2
-        fi
+      run: cmake --build build --config Release --parallel 2
 
     # Тестирование
     - name: Test
@@ -53,7 +33,7 @@ jobs:
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: card-heroes-battle-${{ matrix.os }}
+        name: card-heroes-battle-ubuntu
         path: |
           build/bin/*
           build/docs/html/
