@@ -1,7 +1,4 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
+// character_card.cpp
 #include "character_card.h"
 #include "player.h"
 #include <sstream>
@@ -115,7 +112,8 @@ bool CharacterCard::play(Player* source, Player* target) {
     source->modifyMana(-m_manaCost);
 
     // Add character to player's field
-    source->addCharacterToField(std::static_pointer_cast<CharacterCard>(shared_from_this()));
+    source->addCharacterToField(std::static_pointer_cast<CharacterCard>(
+    std::enable_shared_from_this<CharacterCard>::shared_from_this()));
 
     // Character cannot attack the turn it is played
     m_canAttack = false;

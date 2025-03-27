@@ -1,7 +1,3 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
 /**
  * @file magic_card.cpp
  * @brief Реализация класса магических карт

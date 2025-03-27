@@ -1,7 +1,3 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
 /**
  * @file card.h
  * @brief Base class for all cards in the game
@@ -22,6 +18,7 @@ class Player;
 class CharacterCard;                       
 // Card type enumeration
 enum class CardType {
+    Creature,
     Character,
     Magic,
     Weapon,

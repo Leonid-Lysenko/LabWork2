@@ -1,9 +1,7 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
 #include "ai_player.h"
 #include "spell_card.h"
+#include <iostream>
+
 bool AIPlayer::takeTurn(Player* opponent) {
     // Простая ИИ логика:
     
@@ -112,4 +110,10 @@ int AIPlayer::makeDecision(Player* opponent) {
     }
     
     return -1; // Нет подходящей карты
+}
+
+void AIPlayer::displayHelp() const {
+    // Реализация метода для ИИ-игрока
+    // Например:
+    std::cout << "AI Player help: This player is controlled by computer.\n";
 }

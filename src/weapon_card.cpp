@@ -1,8 +1,3 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
-
 /**
  * @file weapon_card.cpp
  * @brief Реализация класса карт оружия
@@ -77,7 +72,8 @@ bool WeaponCard::play(Player* source, Player* target, int characterIndex) {
 
     // Экипируем новое оружие
     m_equippedCharacter = character;
-    character->equipWeapon(std::static_pointer_cast<WeaponCard>(shared_from_this()));
+    character->equipWeapon(std::static_pointer_cast<WeaponCard>(
+    std::enable_shared_from_this<Card>::shared_from_this()));
 
     // Применяем бонусы оружия
     character->modifyAttack(m_attack);

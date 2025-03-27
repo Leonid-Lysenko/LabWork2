@@ -1,7 +1,3 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
 /**
  * @file accessory_card.h
  * @brief Класс карт аксессуаров

@@ -1,7 +1,3 @@
-/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
 /**
  * @file bazaar.h
  * @brief Класс магазина карт

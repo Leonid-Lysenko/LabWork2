@@ -1,8 +1,3 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
-
 // effect.cpp
 #include "effect.h"
 #include "character_card.h"

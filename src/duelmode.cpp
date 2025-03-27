@@ -1,9 +1,3 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
-
-
 /**
  * @file duel_mode.cpp 
  * @brief Реализация режима дуэли

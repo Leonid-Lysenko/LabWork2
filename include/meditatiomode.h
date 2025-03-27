@@ -1,8 +1,3 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
-
 #ifndef MEDITATIOMODE_H
 #define MEDITATIOMODE_H
 
@@ -14,6 +9,7 @@
  */
 class MeditationMode : public GameMode {
 protected:
+    std::string getPlayerCommand() const;
     bool m_infiniteMana;      ///< Флаг бесконечной маны
     bool m_infiniteHealth;    ///< Флаг бесконечного здоровья
     bool m_unlimitedCards;    ///< Флаг неограниченного количества карт

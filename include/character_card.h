@@ -1,8 +1,3 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
-
 /**
  * @file character_card.h
  * @brief Character card class for creatures/minions
@@ -238,6 +233,22 @@ public:
     void setCanAct(bool canAct) {
         m_canAttack = canAct;
     }
+    
+    /**
+ * @brief Modify character's mana (for accessory effects)
+ * @param amount Amount to modify
+ */
+void modifyMana(int amount) {
+    // Implementation if needed
+}
+
+/**
+ * @brief Modify character's speed (for accessory effects)
+ * @param amount Amount to modify
+ */
+void modifySpeed(int amount) {
+    // Implementation if needed
+}
 };
 
 // Convenient typedefs

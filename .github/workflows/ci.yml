@@ -1,35 +1,50 @@
-name: Card Heroes Battle CI
+name: CI
 
-on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v2
+    
+    - name: Configure CMake
+      run: cmake -B build
+      
+    - name: Build
+      run: cmake --build build
+      
+    - name: Test
+      run: cd build && ctest --output-on-failure
 
-    - name: Install dependencies
+    # Условные шаги для Windows
+    - name: Set up MSVC (Windows only)
+      if: matrix.os == 'windows-latest'
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Install Doxygen (Windows)
+      if: matrix.os == 'windows-latest'
+      run: |
+        choco install doxygen.install -y
+        choco install graphviz -y
+
+    # Условные шаги для Ubuntu
+    - name: Install Doxygen (Ubuntu)
+      if: matrix.os == 'ubuntu-latest'
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential doxygen graphviz
-
-    - name: Build
-      run: |
-        chmod +x build.sh
-        ./build.sh
+        sudo apt-get install -y doxygen graphviz
 
     - name: Upload Artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: card-heroes-battle
+        name: card-heroes-battle-${{ matrix.os }}
         path: |
-          build/bin/*.exe
+          build/bin/*
           docs/html/
 
     - name: Deploy Documentation
@@ -38,4 +53,3 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs/html
-

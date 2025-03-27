@@ -1,8 +1,3 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
-
 /**
  * @file weapon_card.h
  * @brief Weapon card class for equippable weapons
@@ -30,7 +25,7 @@ enum class WeaponType {
  * @class WeaponCard
  * @brief Represents a weapon card in the game
  */
-class WeaponCard : public Card, public std::enable_shared_from_this<WeaponCard> {
+class WeaponCard : public Card /*, public std::enable_shared_from_this<WeaponCard> */ {
 protected:
     WeaponType m_weaponType;       ///< Type of weapon
     int m_attack;                  ///< Attack bonus provided by the weapon

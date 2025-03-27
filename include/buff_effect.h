@@ -1,7 +1,3 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
 /**
  * @file buff_effect.h
  * @brief Класс для эффектов усиления

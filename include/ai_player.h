@@ -1,7 +1,3 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
 /**
  * @file ai_player.h
  * @brief Класс ИИ-игрока
@@ -49,6 +45,8 @@ protected:
     int makeDecision(Player* opponent);
 
 public:
+    void displayHelp() const override;
+    
     /**
      * @brief Конструктор для AIPlayer
      * @param id Уникальный идентификатор игрока

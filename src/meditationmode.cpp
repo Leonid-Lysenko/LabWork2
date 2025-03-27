@@ -1,8 +1,3 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
-
 /**
  * @file meditation_mode.cpp
  * @brief Реализация режима медитации для экспериментов с картами
@@ -18,6 +13,13 @@ MeditationMode::MeditationMode()
     , m_infiniteMana(false)
     , m_infiniteHealth(false)
     , m_unlimitedCards(false) {
+}
+
+std::string MeditationMode::getPlayerCommand() const {
+    std::string command;
+    std::cout << "Enter command: ";
+    std::getline(std::cin, command);
+    return command;
 }
 
 bool MeditationMode::initialize(const std::vector<PlayerPtr>& players) {

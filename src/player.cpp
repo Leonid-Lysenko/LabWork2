@@ -1,8 +1,4 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
-
+// player.cpp
 #include "player.h"
 #include <iostream>
 
@@ -101,4 +97,8 @@ void Player::displayStatus() const {
     }
     
     std::cout << "Карт в колоде: " << m_deck.size() << "\n";
+}
+
+void Player::displayHelp() const {
+    // Базовая реализация или оставить пустой
 }

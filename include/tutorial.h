@@ -1,8 +1,3 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
-
 /**
  * @file tutorial.h
  * @brief Класс обучения игре

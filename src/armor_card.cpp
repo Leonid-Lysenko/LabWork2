@@ -1,10 +1,9 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
+// armor_card.cpp
 #include "armor_card.h"
+#include "player.h"
+#include "character_card.h"
 
-ArmorCard::ArmorCard(int id, std::string name, std::string description,
+ArmorCard::ArmorCard(int id, const std::string& name, const std::string& description,
                    int manaCost, int defense, int durability,
                    CardRarity rarity)
 : Card(id, name, description, manaCost, CardType::Armor, rarity)

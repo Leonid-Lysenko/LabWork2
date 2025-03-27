@@ -1,8 +1,3 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
-
 /**
  * @file human_player.h
  * @brief Класс игрока-человека
@@ -42,7 +37,7 @@ public:
     /**
      * @brief Отобразить справку по командам
      */
-    void displayHelp() const;
+    void displayHelp() const override;
     
     /**
      * @brief Обработать команду пользователя

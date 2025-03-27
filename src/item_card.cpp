@@ -1,9 +1,6 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
 #include "item_card.h"
-
+#include "player.h"
+#include "character_card.h"
 ItemCard::ItemCard(int id, std::string name, std::string description,
                  int manaCost, ItemType type, int power,
                  CardRarity rarity)

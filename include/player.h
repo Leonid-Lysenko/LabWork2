@@ -1,8 +1,3 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
-
 #ifndef PLAYER_H
 #define PLAYER_H
 
@@ -48,6 +43,8 @@ protected:
     std::vector<EffectPtr> m_effects;   ///< Эффекты на игроке
 
 public:
+    virtual void displayHelp() const = 0;
+    
     /**
      * @brief Конструктор для Player
      * @param id Уникальный идентификатор игрока

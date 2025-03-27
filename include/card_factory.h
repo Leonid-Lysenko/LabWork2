@@ -1,7 +1,3 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
 /**
  * @file card_factory.h
  * @brief Фабрика карт
@@ -119,7 +115,8 @@ public:
      */
     MagicCardPtr createMagicCard(
         const std::string& name, int manaCost, const std::string& description,
-        MagicType magicType, int power = 0, int duration = 0);
+        MagicType magicType, int power = 0, int duration = 0,
+        CardRarity rarity = CardRarity::Common);
     
     /**
      * @brief Создать полную коллекцию карт

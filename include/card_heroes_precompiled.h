@@ -1,8 +1,3 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
-
 #ifndef CARD_HEROES_PRECOMPILED_H
 #define CARD_HEROES_PRECOMPILED_H
 

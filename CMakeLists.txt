@@ -5,6 +5,13 @@ project(CardHeroesBattle VERSION 1.0)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Добавляем поддержку компиляторов для разных платформ
+if(MSVC)
+    add_compile_options(/W4)
+else()
+    add_compile_options(-Wall -Wextra)
+endif()
+
 # Опции сборки
 option(BUILD_TESTS "Build tests" ON)
 option(BUILD_DOCS "Build documentation" ON)
@@ -25,23 +32,42 @@ target_include_directories(${PROJECT_NAME}_lib PUBLIC
 add_executable(${PROJECT_NAME} src/main.cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}_lib)
 
-# Тесты
-if(BUILD_TESTS)
-    find_package(GTest)
-    if(GTEST_FOUND)
-        file(GLOB_RECURSE TEST_SOURCES "tests/*.cpp")
-        add_executable(run_tests ${TEST_SOURCES})
-        target_link_libraries(run_tests PRIVATE 
-            ${PROJECT_NAME}_lib
-            GTest::GTest 
-            GTest::Main
-        )
-        
-        add_test(NAME unit_tests COMMAND run_tests)
-        message(STATUS "GTest found, tests will be built")
-    else()
-        message(STATUS "GTest not found, tests will be skipped")
+# Добавляем поддержку покрытия кода для Linux
+if(UNIX)
+    target_compile_options(${PROJECT_NAME}_lib PRIVATE --coverage)
+    target_link_libraries(${PROJECT_NAME}_lib PRIVATE gcov)
+endif()
+
+# Добавляем поддержку sanitizers для отладки
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    if(UNIX)
+        target_compile_options(${PROJECT_NAME}_lib PRIVATE -fsanitize=address,undefined)
+        target_link_options(${PROJECT_NAME}_lib PRIVATE -fsanitize=address,undefined)
     endif()
+endif()
+
+# Тесты
+# В разделе тестов замените на:
+if(BUILD_TESTS)
+    enable_testing()
+    find_package(GTest REQUIRED)
+    
+    # Создаем отдельный тестовый исполняемый файл
+    add_executable(game_tests
+        tests/player_test.cpp
+        tests/card_test.cpp
+        tests/game_mode_test.cpp
+        tests/effect_test.cpp
+        tests/test_main.cpp  # Новый файл с точкой входа
+    )
+    
+    target_link_libraries(game_tests PRIVATE
+        ${PROJECT_NAME}_lib
+        GTest::GTest
+        GTest::Main
+    )
+    
+    add_test(NAME game_unit_tests COMMAND game_tests)
 endif()
 
 # Документация

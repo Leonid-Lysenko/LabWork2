@@ -1,9 +1,5 @@
-﻿/* Leonid Lysenko st128618@student.spbu.ru
-   Lab2
-*/
-
-
 #include "human_player.h"
+#include <iostream>
 
 bool HumanPlayer::takeTurn(Player* opponent) {
     displayStatus();
@@ -22,4 +18,10 @@ bool HumanPlayer::takeTurn(Player* opponent) {
         // ... другие команды
     }
     return true;
+}
+
+void HumanPlayer::displayHelp() const {
+    // Реализация метода
+    std::cout << "=== Human Player Help ===\n";
+    // ... ваш код помощи для игрока
 }
